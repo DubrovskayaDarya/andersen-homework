@@ -1,9 +1,10 @@
 import React from "react";
 import {FormInput} from "../formInput/FormInput";
 import style from "./Form.module.css"
+import {FormTextarea} from "../formTextarea/FormTextarea";
+import {CustomButton} from "../../components/customButton/CustomButton";
 
 type FormPropsType = {};
-
 type FormStateType = {};
 
 export class Form extends React.Component<FormPropsType, FormStateType> {
@@ -12,14 +13,18 @@ export class Form extends React.Component<FormPropsType, FormStateType> {
         return <div className={style.formContainer}>
             <h1>Create a questionnaire</h1>
             <form>
-                <FormInput title={'Name'}/>
-                <FormInput title={'Surname'}/>
-                <FormInput title={'Date of Birth'}/>
-                <FormInput title={'Phone number'}/>
-                <FormInput title={'Personal Website'}/>
-                <FormInput title={'About'}/>
-                <FormInput title={'Tech'}/>
-                <FormInput title={'Last project'}/>
+                <FormInput type={'text'} title={'Name'}/>
+                <FormInput type={'text'} title={'Surname'}/>
+                <FormInput type={'date'} title={'Date of Birth'}/>
+                <FormInput type={'text'} title={'Phone number'}/>
+                <FormInput type={'text'} title={'Personal Website'}/>
+                <FormTextarea title={'About'}/>
+                <FormTextarea title={'Tech'}/>
+                <FormTextarea title={'Last project'}/>
+                <div className={style.buttonBlock}>
+                    <CustomButton name={'Cancel'} type={'button'}/>
+                    <CustomButton name={'Save'} type={'submit'}/>
+                </div>
             </form>
         </div>
     }
