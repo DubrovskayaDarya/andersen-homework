@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/andersen-homework/static/css/main.81e12346.css",
+    "main.js": "/andersen-homework/static/js/main.43f6ac8d.js",
+    "static/js/787.4296e9b9.chunk.js": "/andersen-homework/static/js/787.4296e9b9.chunk.js",
+    "index.html": "/andersen-homework/index.html",
+    "main.81e12346.css.map": "/andersen-homework/static/css/main.81e12346.css.map",
+    "main.43f6ac8d.js.map": "/andersen-homework/static/js/main.43f6ac8d.js.map",
+    "787.4296e9b9.chunk.js.map": "/andersen-homework/static/js/787.4296e9b9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.81e12346.css",
+    "static/js/main.43f6ac8d.js"
+  ]
+}
