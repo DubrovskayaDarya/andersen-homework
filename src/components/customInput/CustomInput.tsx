@@ -11,7 +11,7 @@ type CustomInputPropsType = DefaultInputPropsType & {
 }
 
 //Component
-export class CustomInput extends React.Component<CustomInputPropsType, any> {
+export class CustomInput extends React.Component<CustomInputPropsType> {
 
     onChangeInputHandler = (e: ChangeEvent<HTMLInputElement>) => {
         this.props.onChangeInput(e.currentTarget.value)

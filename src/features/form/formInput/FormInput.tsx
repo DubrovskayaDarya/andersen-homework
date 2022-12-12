@@ -1,12 +1,12 @@
 import React from "react";
 import style from './FormInput.module.css'
-import {CustomInput} from "../../components/customInput/CustomInput";
+import {CustomInput} from "../../../components/customInput/CustomInput";
+
 
 type FormInputPropsType = {
     title: string;
     type: 'text' | 'date'
 };
-
 type FormInputStateType = {
     inputValue: string
 };

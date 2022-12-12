@@ -1,7 +1,7 @@
 import React from "react";
-import {FormInput} from "../formInput/FormInput";
+import {FormInput} from "./formInput/FormInput";
 import style from "./Form.module.css"
-import {FormTextarea} from "../formTextarea/FormTextarea";
+import {FormTextarea} from "./formTextarea/FormTextarea";
 import {CustomButton} from "../../components/customButton/CustomButton";
 
 type FormPropsType = {};
