@@ -1,11 +1,12 @@
 import React from "react";
 import style from './FormInput.module.css'
 import {CustomInput} from "../../../components/customInput/CustomInput";
+import {InputTypes} from "../Form";
 
 
 type FormInputPropsType = {
     title: string;
-    type: 'text' | 'date'
+    type: InputTypes;
 };
 type FormInputStateType = {
     inputValue: string
@@ -13,6 +14,7 @@ type FormInputStateType = {
 
 
 export class FormInput extends React.Component<FormInputPropsType, FormInputStateType> {
+
 
     state: FormInputStateType = {
         inputValue: '',
@@ -31,4 +33,4 @@ export class FormInput extends React.Component<FormInputPropsType, FormInputStat
                          onChangeInput={this.onChangeInput}/>
         </div>
     }
-};
+}

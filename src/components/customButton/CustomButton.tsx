@@ -11,11 +11,11 @@ export class CustomButton extends React.Component<CustomButtonPropsType, any> {
     render() {
         const finalClassName = `${this.props.error ? style.error : style.default} ${this.props.className}`
 
-        return <>
+        return (
             <button
                 className={finalClassName}
                 {...this.props}
             >{this.props.name}</button>
-        </>
+        )
     }
 };

@@ -27,6 +27,7 @@ export class FormTextarea extends React.Component<FormTextareaPropsType, FormTex
                 onChange={this.onChangeTextareaHandler}
                 placeholder={this.props.title}
                 className={style.formTextarea}
+                maxLength={240}
                 rows={7}
                 cols={1}>{this.state.inputValue}</textarea>
         </div>
