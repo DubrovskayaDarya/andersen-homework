@@ -1,56 +1,106 @@
 import React from "react";
-import {FormInput} from "./formInput/FormInput";
+import {Input} from "./input/Input";
 import style from "./Form.module.css"
-import {FormTextarea} from "./formTextarea/FormTextarea";
-import {CustomButton} from "../../components/customButton/CustomButton";
+import {Textarea} from "./textarea/Textarea";
+import {CustomButton} from "../../common/components/customButton/CustomButton";
 
 //Types
-export type InputTypes = 'text' | 'date'
 type FormPropsType = {};
 type FormStateType = {
-    input: Array<{ title: string, type: InputTypes }>
-    textarea: Array<{ title: string }>
-}
+    name: string
+    surname: string
+    dateOfBirth: string
+    phoneNumber: string
+    website: string
+    about: string
+    stack: string
+    lastProject: string
+    formErrors: string
+};
 
-export class Form extends React.Component<FormPropsType> {
+export class Form extends React.Component<FormPropsType, FormStateType> {
+
+    constructor(props: FormPropsType) {
+        super(props);
+        this.state = {
+            name: '',
+            surname: '',
+            dateOfBirth: '',
+            phoneNumber: '',
+            website: '',
+            about: '',
+            stack: '',
+            lastProject: '',
+            formErrors: ''
+        }
+    }
 
     render() {
 
-        const formState: FormStateType = {
+        const formState = {
             input: [
                 {
                     type: 'text',
-                    title: 'Имя'
+                    title: 'Имя',
+                    value: this.state.name,
+                    onChange: (value: string) => this.setState({name: value})
                 },
                 {
                     type: 'text',
-                    title: 'Фамилия'
+                    title: 'Фамилия',
+                    value: this.state.surname,
+                    onChange: (value: string) => this.setState({surname: value})
                 },
                 {
                     type: 'date',
-                    title: 'Дата рождения'
+                    title: 'Дата рождения',
+                    value: this.state.dateOfBirth,
+                    onChange: (value: string) => this.setState({dateOfBirth: value})
                 },
                 {
                     type: 'text',
-                    title: 'Номер телефона'
+                    title: 'Номер телефона',
+                    value: this.state.phoneNumber,
+                    onChange: (value: string) => this.setState({phoneNumber: value})
                 },
                 {
                     type: 'text',
-                    title: 'Сайт'
+                    title: 'Сайт',
+                    value: this.state.website,
+                    onChange: (value: string) => this.setState({website: value})
                 },
             ],
             textarea: [
-                {title: 'О себе'},
-                {title: 'Стек технологий'},
-                {title: 'Описание последнего проекта'},
+                {
+                    title: 'О себе',
+                    value: this.state.about,
+                    onChange: (value: string) => this.setState({about: value})
+                },
+                {
+                    title: 'Стек технологий',
+                    value: this.state.stack,
+                    onChange: (value: string) => this.setState({stack: value})
+                },
+                {
+                    title: 'Описание последнего проекта',
+                    value: this.state.lastProject,
+                    onChange: (value: string) => this.setState({lastProject: value})
+                },
             ]
         };
 
         return <div className={style.formContainer}>
             <h1>Создание анкеты</h1>
             <form>
-                {formState.input.map(el => <FormInput type={el.type} title={el.title}/>)}
-                {formState.textarea.map(el => <FormTextarea title={el.title}/>)}
+                {formState.input.map((el, i) => <Input onChange={el.onChange}
+                                                       key={i}
+                                                       value={el.value}
+                                                       type={el.type}
+                                                       title={el.title}/>)}
+                {formState.textarea.map((el, i) => <Textarea onChange={el.onChange}
+                                                             key={i}
+                                                             value={el.value}
+                                                             title={el.title}/>)}
                 <div className={style.buttonBlock}>
                     <CustomButton name={'Отмена'} type={'button'}/>
                     <CustomButton name={'Сохранить'} type={'submit'}/>

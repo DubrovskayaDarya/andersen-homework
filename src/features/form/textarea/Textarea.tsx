@@ -1,35 +1,34 @@
 import React, {ChangeEvent} from "react";
-import style from './FormTextarea.module.css'
+import style from './Textarea.module.css'
 
 //Types
 type FormTextareaPropsType = {
     title: string;
+    value: string;
+    onChange: (value: string) => void
 };
 type FormTextareaStateType = {
     inputValue: string
 };
 
 //Component
-export class FormTextarea extends React.Component<FormTextareaPropsType, FormTextareaStateType> {
-
-    state: FormTextareaStateType = {
-        inputValue: '',
-    };
+export class Textarea extends React.Component<FormTextareaPropsType, FormTextareaStateType> {
 
     onChangeTextareaHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        this.setState({inputValue: this.state.inputValue = e.currentTarget.value})
+        this.props.onChange(e.currentTarget.value)
     };
 
     render() {
         return <div className={style.formInput}>
             <label className={style.label}>{this.props.title}</label>
             <textarea
+                value={this.props.value}
                 onChange={this.onChangeTextareaHandler}
                 placeholder={this.props.title}
                 className={style.formTextarea}
                 maxLength={240}
                 rows={7}
-                cols={1}>{this.state.inputValue}</textarea>
+                cols={1}/>
         </div>
     }
 };
