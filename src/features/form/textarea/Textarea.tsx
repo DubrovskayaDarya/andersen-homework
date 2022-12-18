@@ -3,7 +3,9 @@ import style from './Textarea.module.css'
 
 //Types
 type FormTextareaPropsType = {
+    id: string;
     title: string;
+    error: string | undefined;
     value: string;
     onChange: (value: string) => void
 };
@@ -29,6 +31,7 @@ export class Textarea extends React.Component<FormTextareaPropsType, FormTextare
                 maxLength={240}
                 rows={7}
                 cols={1}/>
+            {this.props.error && <div className={style.error}>{this.props.error}</div>}
         </div>
     }
 };
