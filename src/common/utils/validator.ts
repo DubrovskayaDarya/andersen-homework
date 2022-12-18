@@ -62,5 +62,6 @@ export const validator = (values: ValuesType, setErrorHandler: (error: FormError
         errors.lastProject = EMPTY_FIELD_ERROR;
     }
 
-    setErrorHandler(errors)
+    return Object.keys(errors).length === 0 ? null : setErrorHandler(errors)
+
 };
