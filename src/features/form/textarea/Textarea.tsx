@@ -1,5 +1,6 @@
 import React, {ChangeEvent} from "react";
 import style from './Textarea.module.css'
+import {MAX_TEXTAREA_LENGTH} from "../../../common/constants/constants";
 
 //Types
 type FormTextareaPropsType = {
@@ -28,9 +29,10 @@ export class Textarea extends React.Component<FormTextareaPropsType, FormTextare
                 onChange={this.onChangeTextareaHandler}
                 placeholder={this.props.title}
                 className={style.formTextarea}
-                maxLength={240}
+                maxLength={MAX_TEXTAREA_LENGTH}
                 rows={7}
                 cols={1}/>
+            {`Осталось ${MAX_TEXTAREA_LENGTH - this.props.value.length}/${MAX_TEXTAREA_LENGTH}`}
             {this.props.error && <div className={style.error}>{this.props.error}</div>}
         </div>
     }

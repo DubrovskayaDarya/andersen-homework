@@ -52,20 +52,14 @@ export const validator = (values: ValuesType, setErrorHandler: (error: FormError
 
     if (values.about === "") {
         errors.about = EMPTY_FIELD_ERROR;
-    } else if (values.about && values.about.length > 600) {
-        errors.about = "Превышен лимит символов в поле ";
     }
 
     if (values.stack === "") {
         errors.stack = EMPTY_FIELD_ERROR;
-    } else if (values.stack && values.stack.length > 600) {
-        errors.stack = "Превышен лимит символов в поле ";
     }
 
     if (values.lastProject === "") {
         errors.lastProject = EMPTY_FIELD_ERROR;
-    } else if (values.lastProject && values.lastProject.length > 600) {
-        errors.lastProject = "Превышен лимит символов в поле ";
     }
 
     setErrorHandler(errors)
