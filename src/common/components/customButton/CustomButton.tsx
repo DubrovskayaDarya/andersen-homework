@@ -1,4 +1,4 @@
-import React, {ButtonHTMLAttributes, DetailedHTMLProps} from "react";
+import React, { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 import style from "./CustomButton.module.css";
 
 type DefaultButtonPropsType = DetailedHTMLProps<
@@ -11,12 +11,12 @@ type CustomButtonPropsType = DefaultButtonPropsType & {
 
 export function CustomButton(props: CustomButtonPropsType) {
   const finalClassName = `${props.error ? style.error : style.default} ${
-      props.className
+    props.className
   }`;
 
   return (
-      <button className={finalClassName} {...props}>
-        {props.name}
-      </button>
+    <button className={finalClassName} {...props}>
+      {props.name}
+    </button>
   );
 }
