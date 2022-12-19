@@ -28,7 +28,7 @@ export class Textarea extends React.Component<
       <div className={style.formInput}>
         <label className={style.label}>{this.props.title}</label>
         <textarea
-          value={this.props.value}
+          value={this.props.value.trim()}
           onChange={this.onChangeTextareaHandler}
           placeholder={this.props.title}
           className={style.formTextarea}

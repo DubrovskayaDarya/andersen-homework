@@ -30,7 +30,7 @@ export class Input extends React.Component<
         <ReactInputMask
           mask={this.props.mask}
           id={this.props.id}
-          value={this.props.value}
+          value={this.props.value.trim()}
           className={style.customInput}
           type={this.props.type}
           placeholder={this.props.title}
