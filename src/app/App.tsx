@@ -1,11 +1,13 @@
-import React from 'react';
-import './App.css';
-import {Form} from "../features/form/Form";
+import React from "react";
+import "./App.css";
+import { Main } from "../features/Main";
 
-export function App() {
+export class App extends React.Component {
+  render() {
     return (
-        <div className="App">
-            <Form/>
-        </div>
+      <div className="App">
+        <Main />
+      </div>
     );
+  }
 }
