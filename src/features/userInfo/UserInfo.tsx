@@ -12,19 +12,17 @@ type UserInfoPropsType = {
   lastProject: string;
 };
 
-export class UserInfo extends React.Component<UserInfoPropsType> {
-  render() {
-    const userInfo = Object.values(this.props);
+export function UserInfo(props: UserInfoPropsType) {
+  const userInfo = Object.values(props);
 
-    return (
-      <div className={style.userInfoContainer}>
-        <h1>{`${this.props.name} ${this.props.surname}`}</h1>
-        <ul>
-          {userInfo.map((el) => {
-            return <li>{el}</li>;
-          })}
-        </ul>
-      </div>
-    );
-  }
+  return (
+    <div className={style.userInfoContainer}>
+      <h1>{`${props.name} ${props.surname}`}</h1>
+      <ul>
+        {userInfo.map((el) => {
+          return <li>{el}</li>;
+        })}
+      </ul>
+    </div>
+  );
 }

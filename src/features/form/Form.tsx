@@ -11,49 +11,47 @@ type FormPropsType = {
   clearForm: () => void;
 };
 
-export class Form extends React.Component<FormPropsType> {
-  onSubmitHandler = (e: FormEvent<HTMLFormElement>) => {
+export function Form(props: FormPropsType) {
+  const onSubmitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    this.props.onSubmit();
+    props.onSubmit();
   };
 
-  render() {
-    return (
-      <div className={style.formContainer}>
-        <h1>Создание анкеты</h1>
-        <form onSubmit={this.onSubmitHandler}>
-          {this.props.formState.input.map((el, i) => (
-            <Input
-              onChange={el.onChange}
-              id={el.id}
-              error={el.error}
-              mask={el.mask}
-              key={i}
-              value={el.value}
-              type={el.type}
-              title={el.title}
-            />
-          ))}
-          {this.props.formState.textarea.map((el, i) => (
-            <Textarea
-              onChange={el.onChange}
-              id={el.id}
-              error={el.error}
-              key={i}
-              value={el.value}
-              title={el.title}
-            />
-          ))}
-          <div className={style.buttonBlock}>
-            <CustomButton
-              name={"Отмена"}
-              type={"button"}
-              onClick={this.props.clearForm}
-            />
-            <CustomButton name={"Сохранить"} type={"submit"} />
-          </div>
-        </form>
-      </div>
-    );
-  }
+  return (
+    <div className={style.formContainer}>
+      <h1>Создание анкеты</h1>
+      <form onSubmit={onSubmitHandler}>
+        {props.formState.input.map((el, i) => (
+          <Input
+            onChange={el.onChange}
+            id={el.id}
+            error={el.error}
+            mask={el.mask}
+            key={i}
+            value={el.value}
+            type={el.type}
+            title={el.title}
+          />
+        ))}
+        {props.formState.textarea.map((el, i) => (
+          <Textarea
+            onChange={el.onChange}
+            id={el.id}
+            error={el.error}
+            key={i}
+            value={el.value}
+            title={el.title}
+          />
+        ))}
+        <div className={style.buttonBlock}>
+          <CustomButton
+            name={"Отмена"}
+            type={"button"}
+            onClick={props.clearForm}
+          />
+          <CustomButton name={"Сохранить"} type={"submit"} />
+        </div>
+      </form>
+    </div>
+  );
 }
